@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:task_project/gen/assets.gen.dart';
+import 'package:task_project/src/component/widgets/my_button.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
+import 'package:task_project/src/ui/pages/category_section/category.dart';
 import 'package:task_project/src/ui/pages/home/widgets/action_butto.dart';
 import 'package:task_project/src/ui/pages/home/widgets/search_bar.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
   final TextEditingController searchcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
+        //app bar section
         SliverAppBar(
+          expandedHeight: 210,
           flexibleSpace: FlexibleSpaceBar(
             background: Stack(
               children: [
                 Container(
-                  height: 187,
+                  height: 210,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [AppColors.appbarbg1, AppColors.appbarbg2],
@@ -37,8 +42,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          toolbarHeight: 187,
 
+          toolbarHeight: 210,
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -70,12 +75,21 @@ class HomePage extends StatelessWidget {
                                 fontSize: 14,
                               ),
                             ),
-                            Text(
-                              "264 Boncycle,FL 32328",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  "264 Boncycle,FL 32328",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                ),
+
+                                Icon(
+                                  Icons.arrow_drop_down_outlined,
+                                  color: AppColors.white,
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -106,8 +120,23 @@ class HomePage extends StatelessWidget {
                 filterPress: () {},
                 searchcontroller: searchcontroller,
               ),
-              SizedBox(height: 24),
             ],
+          ),
+        ),
+
+        SliverToBoxAdapter(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: SizedBox(height: 128, child: Category()),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

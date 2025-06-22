@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_project/src/component/widgets/navigator_button.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/constants/colors/nav_button_names.dart';
+
 import 'package:task_project/src/ui/pages/home/home_page.dart';
 
 class PageViewSection extends StatefulWidget {
@@ -13,6 +14,7 @@ class PageViewSection extends StatefulWidget {
 
 class _PageViewSectionState extends State<PageViewSection> {
   int selected = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
