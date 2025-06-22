@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:task_project/gen/assets.gen.dart';
 
 class NavButtonNames {
   NavButtonNames._();
 
-  static Map<String, IconData> buttonnamesAndIcons = {
-    "Home": Icons.home_outlined,
-    "More": Icons.menu_outlined,
-    "Message": Icons.message,
-    "Shop": Icons.shop_outlined,
-    "You": Icons.person_outline,
+  static Map<String, String> buttonnamesAndIcons = {
+    "Home": Assets.icons.homeNavBar,
+    "More": Assets.icons.listIconNav,
+    "Message": Assets.icons.messageIconNav,
+    "Shop": Assets.icons.shoppingIconNav,
+    "You": Assets.icons.personIconNav,
   };
 }
