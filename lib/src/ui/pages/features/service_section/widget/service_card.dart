@@ -79,111 +79,113 @@ class ServiceCard extends StatelessWidget {
                 // spacing: 4,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      SvgPicture.asset(Assets.icons.star),
-
-                      Text(
-                        " $ratting",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.black,
-                        ),
-                      ),
-                      SvgPicture.asset(
-                        Assets.icons.dot,
-                        colorFilter: ColorFilter.mode(
-                          AppColors.servicecardtxtcolor,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                      Text(
-                        "$time hr",
-                        style: TextStyle(
-                          color: AppColors.servicecardtxtcolor,
-                          fontSize: 12,
-                        ),
-                      ),
-                      SvgPicture.asset(
-                        Assets.icons.dot,
-                        colorFilter: ColorFilter.mode(
-                          AppColors.servicecardtxtcolor,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                      Text(
-                        workType,
-                        style: TextStyle(
-                          color: AppColors.servicecardtxtcolor,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 6),
+                  // description and post  information
                   SizedBox(
-                    height: 15,
-
-                    child: Text(
-                      "$jobDescriptionWithLocation ",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
+                    height: 100,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextSpan(
-                          text: "\$$currentPrice ",
-                          style: TextStyle(
-                            color: AppColors.appbarbg2,
-                            fontSize: 14,
+                        Row(
+                          children: [
+                            SvgPicture.asset(Assets.icons.star),
+
+                            Text(
+                              " $ratting",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.black,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              Assets.icons.dot,
+                              colorFilter: ColorFilter.mode(
+                                AppColors.servicecardtxtcolor,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                            Text(
+                              time,
+                              style: TextStyle(
+                                color: AppColors.servicecardtxtcolor,
+                                fontSize: 12,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              Assets.icons.dot,
+                              colorFilter: ColorFilter.mode(
+                                AppColors.servicecardtxtcolor,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                            Text(
+                              workType,
+                              style: TextStyle(
+                                color: AppColors.servicecardtxtcolor,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 6),
+                        SizedBox(
+                          height: 40,
+                          width: 180,
+                          child: Text(
+                            "$jobDescriptionWithLocation ",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
-                        previousPrice > 0
-                            ? TextSpan(
-                                text: " \$$previousPrice",
+                        SizedBox(height: 10),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "\$$currentPrice ",
                                 style: TextStyle(
-                                  color: AppColors.strokedPriceColor,
-                                  decoration: TextDecoration.combine([
-                                    TextDecoration.lineThrough,
-                                  ]),
+                                  color: AppColors.appbarbg2,
                                   fontSize: 14,
                                 ),
-                              )
-                            : TextSpan(),
+                              ),
+                              previousPrice > 0
+                                  ? TextSpan(
+                                      text: " \$$previousPrice",
+                                      style: TextStyle(
+                                        color: AppColors.strokedPriceColor,
+                                        decoration: TextDecoration.combine([
+                                          TextDecoration.lineThrough,
+                                        ]),
+                                        fontSize: 14,
+                                      ),
+                                    )
+                                  : TextSpan(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Divider(color: AppColors.serviceCardBordercolor),
                   ),
-
+                  //names and avatar of person
                   Row(
                     spacing: 4,
                     children: [
                       CircleAvatar(
                         maxRadius: 20,
-                        // child: ClipRRect(
-                        //   borderRadius: BorderRadiusGeometry.circular(100),
-                        //   child: Image.network(
-                        //   personImage ?? '',
-
-                        //   errorBuilder: (context, error, stackTrace) {
-                        //     return Icon(Icons.person);
-                        //   },
-                        //   fit: BoxFit.fill,
-                        // ),
-
-                        // ),
-                        foregroundImage: NetworkImage(personImage ?? ''),
+                        backgroundColor: AppColors.white,
+                        foregroundImage:
+                            personImage != null && personImage!.isNotEmpty
+                            ? NetworkImage(personImage!)
+                            : AssetImage(Assets.icons.accountImg.path)
+                                  as ImageProvider,
                       ),
                       Text(
                         personName,

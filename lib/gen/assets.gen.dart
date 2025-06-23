@@ -12,15 +12,15 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/Rectangle 10.png
-  AssetGenImage get rectangle10 =>
-      const AssetGenImage('assets/icons/Rectangle 10.png');
-
   /// File path: assets/icons/Shape 1.svg
   String get shape1 => 'assets/icons/Shape 1.svg';
 
   /// File path: assets/icons/Shape 2.svg
   String get shape2 => 'assets/icons/Shape 2.svg';
+
+  /// File path: assets/icons/account_img.png
+  AssetGenImage get accountImg =>
+      const AssetGenImage('assets/icons/account_img.png');
 
   /// File path: assets/icons/app_bar_home.svg
   String get appBarHome => 'assets/icons/app_bar_home.svg';
@@ -63,9 +63,9 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    rectangle10,
     shape1,
     shape2,
+    accountImg,
     appBarHome,
     bar,
     cart,

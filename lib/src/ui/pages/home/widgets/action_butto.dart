@@ -18,6 +18,7 @@ class ActionButton extends StatelessWidget {
       onTap: onpress,
       child: Stack(
         alignment: Alignment.topRight,
+        fit: StackFit.loose,
         children: [
           Stack(
             alignment: Alignment.center,

@@ -18,11 +18,13 @@ class ServiceSection extends StatelessWidget {
         },
         separatorBuilder: (context, index) {
           final data = ServiceData.filteredServices[index];
+          final time = DateTime.now()
+              .difference(DateTime.parse(data['created_at']).toLocal())
+              .inHours;
+          final day = (time / 24).toInt();
           return ServiceCard(
             ratting: data['average_rating'],
-            time: DateTime.parse(
-              data['created_at'],
-            ).toLocal().difference(DateTime.now()).inHours.toString(),
+            time: day > 0 ? "$day day" : "$time hr",
             workType: data['name'],
             currentPrice: data['price'],
             previousPrice: data['discount_price'],

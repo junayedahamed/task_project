@@ -4,7 +4,8 @@ import 'package:task_project/gen/assets.gen.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/category_section/category.dart';
 import 'package:task_project/src/ui/pages/features/service_section/service_section.dart';
-import 'package:task_project/src/ui/pages/features/service_section/widget/service_card.dart';
+import 'package:task_project/src/ui/pages/features/slider_section/slider_section.dart';
+import 'package:task_project/src/ui/pages/features/slider_section/widget/slider_card.dart';
 import 'package:task_project/src/ui/pages/home/widgets/action_butto.dart';
 import 'package:task_project/src/ui/pages/home/widgets/search_bar.dart';
 
@@ -14,103 +15,102 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // double width = MediaQuery.of(context).size.width;
     return CustomScrollView(
       slivers: [
         //app bar section
         SliverAppBar(
-          expandedHeight: 160,
-          pinned: true,
+          expandedHeight: 187,
+
           flexibleSpace: FlexibleSpaceBar(
-            title: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: kToolbarHeight),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    // spacing: 43,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            collapseMode: CollapseMode.none,
+            title: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Flex(
+                mainAxisSize: MainAxisSize.min,
+                direction: Axis.vertical,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                spacing: 10,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(height: kToolbarHeight / 2),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        spacing: 2,
                         children: [
-                          Row(
-                            spacing: 2,
+                          SvgPicture.asset(
+                            Assets.icons.appBarHome,
+                            height: 20,
+                            width: 20,
+                            colorFilter: ColorFilter.mode(
+                              Colors.white,
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SvgPicture.asset(
-                                Assets.icons.appBarHome,
-                                height: 25,
-                                width: 25,
-                                colorFilter: ColorFilter.mode(
-                                  Colors.white,
-                                  BlendMode.srcIn,
+                              Text(
+                                "Home",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Row(
                                 children: [
                                   Text(
-                                    "Home",
+                                    "264 Boncycle,FL 32328",
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 10,
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "264 Boncycle,FL 32328",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10,
-                                        ),
-                                      ),
 
-                                      Icon(
-                                        Icons.arrow_drop_down_outlined,
-                                        color: AppColors.white,
-                                      ),
-                                    ],
+                                  Icon(
+                                    Icons.arrow_drop_down_outlined,
+                                    color: AppColors.white,
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ActionButton(
-                                onpress: () {},
-                                icon: Assets.icons.notificationsOutline,
-                                numOfNotification: 5,
-                              ),
-                              SizedBox(width: 8),
-                              ActionButton(
-                                onpress: () {},
-                                icon: Assets.icons.cart,
-                                numOfNotification: 0,
-                              ),
-                            ],
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          ActionButton(
+                            onpress: () {},
+                            icon: Assets.icons.notificationsOutline,
+                            numOfNotification: 5,
+                          ),
+                          SizedBox(width: 8),
+                          ActionButton(
+                            onpress: () {},
+                            icon: Assets.icons.cart,
+                            numOfNotification: 0,
                           ),
                         ],
                       ),
                     ],
                   ),
-                ),
-
-                SearchContainer(
-                  filterPress: () {},
-                  searchcontroller: searchcontroller,
-                ),
-              ],
+                  Flexible(
+                    child: SearchContainer(
+                      filterPress: () {},
+                      searchcontroller: searchcontroller,
+                    ),
+                  ),
+                ],
+              ),
             ),
             centerTitle: true,
             background: Stack(
               children: [
                 Container(
-                  height: 210,
+                  height: 222,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [AppColors.appbarbg1, AppColors.appbarbg2],
@@ -136,10 +136,11 @@ class HomePage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               spacing: 8,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 128, child: Category()),
+                SizedBox(height: 128, child: Categories()),
                 ServiceSection(),
+                ServiceCarouselSlider(),
               ],
             ),
           ),

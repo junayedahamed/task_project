@@ -3,8 +3,8 @@ import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/category_section/widget/category_card.dart';
 import 'package:task_project/src/ui/pages/features/category_section/widget/data.dart';
 
-class Category extends StatelessWidget {
-  const Category({super.key});
+class Categories extends StatelessWidget {
+  const Categories({super.key});
 
   @override
   Widget build(BuildContext context) {
