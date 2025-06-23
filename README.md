@@ -12,23 +12,22 @@ Follow these steps to clone and run the project:
     ```
 
 2. **Install dependencies**
-    ```bash
-  flutter create .
-  flutter pub get
-   ```
+    ``` bash
+    flutter create .
+    flutter pub get
+  ```
 
-3. **Run the project**
-    ```bash
-   #run project in android emulator
-
-    ```
+2. **Run Project**
+    ``` bash
+    flutter run
+  ```
 
 4. **Package uses**
      - carousel_slider: ^4.2.0 [uses for slider section]
      - flutter_svg: ^1.1.0 [uses for svg icons and images]
      - flutter gen  [ to get exact path of assets ]
 5. **Project Structure**
-
+```bash
     -lib
         - gen [ path of assets is here ]
         -src
@@ -50,4 +49,7 @@ Follow these steps to clone and run the project:
                               - widget [ custom card of service_section ]
                 - slider_section [ slider_section and its components ]
                               - widget [ custom card of slider_section ]
-                
+    
+    ```
+
+     
