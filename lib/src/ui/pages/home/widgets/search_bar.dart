@@ -15,8 +15,8 @@ class SearchContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      height: 40,
-      width: width * .85,
+      height: 35,
+      width: width * 0.65,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(100),
@@ -24,7 +24,7 @@ class SearchContainer extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.only(bottom: 10.0, left: 10, top: 7),
             child: Icon(
               Icons.search,
               size: 25,
@@ -43,6 +43,8 @@ class SearchContainer extends StatelessWidget {
           ),
           SvgPicture.asset(
             Assets.icons.bar,
+            height: 25,
+            width: 25,
             colorFilter: ColorFilter.mode(
               AppColors.searchbarcomponentcolor,
               BlendMode.srcIn,
@@ -56,8 +58,8 @@ class SearchContainer extends StatelessWidget {
               child: SvgPicture.asset(
                 Assets.icons.filterSvg,
 
-                height: 30,
-                width: 30,
+                height: 25,
+                width: 25,
                 colorFilter: ColorFilter.mode(
                   AppColors.searchbarcomponentcolor,
                   BlendMode.srcIn,

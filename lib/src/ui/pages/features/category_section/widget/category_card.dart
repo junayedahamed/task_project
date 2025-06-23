@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:task_project/gen/assets.gen.dart';
+import 'package:task_project/src/constants/colors/app_colors.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -21,13 +20,19 @@ class CategoryCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              // height: 64,
-              // width: 64,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 1),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.network(categoryImg, height: 64, width: 64),
+              child: Image.network(
+                categoryImg,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(Icons.error, color: AppColors.red);
+                },
+                height: 64,
+                width: 64,
+                fit: BoxFit.cover,
+              ),
             ),
             Text(
               categoryName,

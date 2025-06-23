@@ -23,20 +23,20 @@ class ActionButton extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Container(
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(height: 30, width: 30, child: SvgPicture.asset(icon)),
+              SizedBox(height: 20, width: 20, child: SvgPicture.asset(icon)),
             ],
           ),
           numOfNotification > 0
               ? Container(
-                  height: 14,
-                  width: 14,
+                  height: 10,
+                  width: 10,
                   decoration: BoxDecoration(
                     color: Colors.red,
                     shape: BoxShape.circle,
@@ -44,7 +44,7 @@ class ActionButton extends StatelessWidget {
                   child: Center(
                     child: Text(
                       numOfNotification.toString(),
-                      style: TextStyle(color: AppColors.white, fontSize: 12),
+                      style: TextStyle(color: AppColors.white, fontSize: 8),
                     ),
                   ),
                 )

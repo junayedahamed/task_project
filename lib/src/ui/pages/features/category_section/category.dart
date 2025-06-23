@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
-import 'package:task_project/src/ui/pages/category_section/widget/category_card.dart';
-import 'package:task_project/src/ui/pages/category_section/widget/data.dart';
+import 'package:task_project/src/ui/pages/features/category_section/widget/category_card.dart';
+import 'package:task_project/src/ui/pages/features/category_section/widget/data.dart';
 
 class Category extends StatelessWidget {
   const Category({super.key});
@@ -21,7 +19,7 @@ class Category extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: CategoryData.data.length,
           itemBuilder: (context, index) {
-            log("message");
+            // log("message");
             return CategoryCard(
               onpress: () {},
               categoryName: CategoryData.data.keys.toList()[index],

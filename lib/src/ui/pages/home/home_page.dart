@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:task_project/gen/assets.gen.dart';
-import 'package:task_project/src/component/widgets/my_button.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
-import 'package:task_project/src/ui/pages/category_section/category.dart';
+import 'package:task_project/src/ui/pages/features/category_section/category.dart';
+import 'package:task_project/src/ui/pages/features/service_section/service_section.dart';
+import 'package:task_project/src/ui/pages/features/service_section/widget/service_card.dart';
 import 'package:task_project/src/ui/pages/home/widgets/action_butto.dart';
 import 'package:task_project/src/ui/pages/home/widgets/search_bar.dart';
 
@@ -17,8 +18,95 @@ class HomePage extends StatelessWidget {
       slivers: [
         //app bar section
         SliverAppBar(
-          expandedHeight: 210,
+          expandedHeight: 160,
+          pinned: true,
           flexibleSpace: FlexibleSpaceBar(
+            title: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: kToolbarHeight),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    // spacing: 43,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: kToolbarHeight / 2),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 2,
+                            children: [
+                              SvgPicture.asset(
+                                Assets.icons.appBarHome,
+                                height: 25,
+                                width: 25,
+                                colorFilter: ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Home",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "264 Boncycle,FL 32328",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+
+                                      Icon(
+                                        Icons.arrow_drop_down_outlined,
+                                        color: AppColors.white,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ActionButton(
+                                onpress: () {},
+                                icon: Assets.icons.notificationsOutline,
+                                numOfNotification: 5,
+                              ),
+                              SizedBox(width: 8),
+                              ActionButton(
+                                onpress: () {},
+                                icon: Assets.icons.cart,
+                                numOfNotification: 0,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                SearchContainer(
+                  filterPress: () {},
+                  searchcontroller: searchcontroller,
+                ),
+              ],
+            ),
+            centerTitle: true,
             background: Stack(
               children: [
                 Container(
@@ -42,99 +130,16 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-
-          toolbarHeight: 210,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                spacing: 43,
-                children: [
-                  SizedBox(
-                    child: Row(
-                      spacing: 2,
-                      children: [
-                        SvgPicture.asset(
-                          Assets.icons.appBarHome,
-                          height: 25,
-                          width: 25,
-                          colorFilter: ColorFilter.mode(
-                            Colors.white,
-                            BlendMode.srcIn,
-                          ),
-                        ),
-                        Column(
-                          spacing: 2,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Home",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "264 Boncycle,FL 32328",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                  ),
-                                ),
-
-                                Icon(
-                                  Icons.arrow_drop_down_outlined,
-                                  color: AppColors.white,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ActionButton(
-                        onpress: () {},
-                        icon: Assets.icons.notificationsOutline,
-                        numOfNotification: 5,
-                      ),
-                      SizedBox(width: 8),
-                      ActionButton(
-                        onpress: () {},
-                        icon: Assets.icons.cart,
-                        numOfNotification: 0,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 24),
-
-              SearchContainer(
-                filterPress: () {},
-                searchcontroller: searchcontroller,
-              ),
-            ],
-          ),
         ),
 
         SliverToBoxAdapter(
           child: SingleChildScrollView(
             child: Column(
+              spacing: 8,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: SizedBox(height: 128, child: Category()),
-                  ),
-                ),
+                SizedBox(height: 128, child: Category()),
+                ServiceSection(),
               ],
             ),
           ),
