@@ -10,6 +10,7 @@ class AppColors {
   static final black = Color(0xff000000);
   static final serviceCardBordercolor = Color(0xffCBD5E1);
   static final red = Color(0xffFF0000);
+  static final rattingSticker = Color(0xffFFF7ED);
   static final strokedPriceColor = Color(0xff475569);
   static final servicecardtxtcolor = Color(0xff475569);
   static final searchbarcomponentcolor = Color(0xff1A428E);

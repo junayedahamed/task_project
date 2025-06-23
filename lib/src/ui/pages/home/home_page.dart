@@ -3,9 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:task_project/gen/assets.gen.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/category_section/category.dart';
+import 'package:task_project/src/ui/pages/features/person_with_ratting/person_section.dart';
+import 'package:task_project/src/ui/pages/features/search_job/post_job_section.dart';
 import 'package:task_project/src/ui/pages/features/service_section/service_section.dart';
 import 'package:task_project/src/ui/pages/features/slider_section/slider_section.dart';
-import 'package:task_project/src/ui/pages/features/slider_section/widget/slider_card.dart';
 import 'package:task_project/src/ui/pages/home/widgets/action_butto.dart';
 import 'package:task_project/src/ui/pages/home/widgets/search_bar.dart';
 
@@ -15,7 +16,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double width = MediaQuery.of(context).size.width;
     return CustomScrollView(
       slivers: [
         //app bar section
@@ -132,15 +132,23 @@ class HomePage extends StatelessWidget {
           ),
         ),
 
+        //body section
         SliverToBoxAdapter(
           child: SingleChildScrollView(
             child: Column(
               spacing: 8,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                //category section
                 SizedBox(height: 128, child: Categories()),
+                //service section card builders
                 ServiceSection(),
+                //carousel section
                 ServiceCarouselSlider(),
+                //person section
+                PersonSection(),
+                //post job section
+                PostJobSection(),
               ],
             ),
           ),

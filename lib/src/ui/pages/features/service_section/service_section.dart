@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/service_section/widget/service_card.dart';
-import 'package:task_project/src/ui/pages/features/service_section/widget/service_data.dart';
+import 'package:task_project/src/constants/colors/service_data.dart';
 
 class ServiceSection extends StatelessWidget {
   const ServiceSection({super.key});

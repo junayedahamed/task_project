@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/slider_section/widget/slider_below_button_func.dart';
 import 'package:task_project/src/ui/pages/features/slider_section/widget/slider_card.dart';
-import 'package:task_project/src/ui/pages/features/slider_section/widget/slider_data.dart';
+import 'package:task_project/src/constants/colors/slider_data.dart';
 
 class ServiceCarouselSlider extends StatelessWidget {
   ServiceCarouselSlider({super.key});

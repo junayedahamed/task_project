@@ -58,6 +58,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/shopping_icon_nav.svg
   String get shoppingIconNav => 'assets/icons/shopping_icon_nav.svg';
 
+  /// File path: assets/icons/src_img.png
+  AssetGenImage get srcImg => const AssetGenImage('assets/icons/src_img.png');
+
   /// File path: assets/icons/star.svg
   String get star => 'assets/icons/star.svg';
 
@@ -78,6 +81,7 @@ class $AssetsIconsGen {
     notificationsOutline,
     personIconNav,
     shoppingIconNav,
+    srcImg,
     star,
   ];
 }

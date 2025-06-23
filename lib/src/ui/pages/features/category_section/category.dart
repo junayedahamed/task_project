@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/src/constants/colors/app_colors.dart';
 import 'package:task_project/src/ui/pages/features/category_section/widget/category_card.dart';
-import 'package:task_project/src/ui/pages/features/category_section/widget/data.dart';
+import 'package:task_project/src/constants/colors/category_data.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
