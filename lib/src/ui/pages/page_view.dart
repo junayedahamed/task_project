@@ -13,7 +13,7 @@ class PageViewSection extends StatefulWidget {
 }
 
 class _PageViewSectionState extends State<PageViewSection> {
-  int selected = 1;
+  int selected = 0;
 
   @override
   Widget build(BuildContext context) {
