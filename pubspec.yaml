@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.0
   carousel_slider: ^5.1.1
+  pdf: ^3.11.3
+  open_file: ^3.5.10
+  path_provider: ^2.1.5
+  permission_handler: ^12.0.1
 
 dev_dependencies:
   build_runner:
@@ -78,10 +82,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Schyler
+      fonts:
+        - asset: assets\font\notosans.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

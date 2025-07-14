@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_project/src/ui/pages/page_view.dart';
+import 'package:task_project/src/ui/pdf/pdf_download.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: const PageViewSection(),
+      home: PdfDownload(),
     );
   }
 }
