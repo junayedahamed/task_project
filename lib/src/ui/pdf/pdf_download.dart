@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:task_project/src/ui/pdf/my_button.dart';
 import 'package:task_project/src/ui/pdf/pdf_func.dart';
@@ -58,6 +60,7 @@ class PdfDownload extends StatelessWidget {
     "Ziziphus",
   ];
 
+  final List<String> drpvalues = ["All", "mobile", "laptop", "PC", "PS5"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,6 +96,31 @@ class PdfDownload extends StatelessWidget {
               ),
             ],
           ),
+
+          SizedBox(height: 50),
+          Row(
+            spacing: 15,
+            children: [
+              Text("Select cat"),
+              SizedBox(
+                width: 300,
+                child: DropdownButtonFormField<String>(
+                  value: drpvalues[0],
+                  decoration: InputDecoration(border: OutlineInputBorder()),
+                  hint: Text("Select a value"),
+                  items: drpvalues.map((item) {
+                    return DropdownMenuItem(value: item, child: Text(item));
+                  }).toList(),
+                  onChanged: (value) {
+                    if (value != null) {
+                      log("selected: $value");
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
         ],
       ),
     );
