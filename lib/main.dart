@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_project/src/ui/pages/table.dart';
+import 'package:task_project/notification/noti_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Mytable(),
+      home: NotiHome(),
     );
   }
 }
